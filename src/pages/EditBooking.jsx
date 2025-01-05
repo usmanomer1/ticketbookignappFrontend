@@ -16,7 +16,7 @@ function EditBooking() {
 
     // Fetch the booking details by ID
     useEffect(() => {
-        axios.get(`http://localhost:8080/TicketBookingApp/api/bookings/${id}`)
+        axios.get(`https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/bookings/${id}`)
             .then(response => {
                 setFormData(response.data);
             })
@@ -34,7 +34,7 @@ function EditBooking() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.put(`http://localhost:8080/TicketBookingApp/api/bookings/${id}`, formData)
+        axios.put(`https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/bookings/${id}`, formData)
             .then(() => {
                 alert('Booking updated successfully!');
                 navigate('/');

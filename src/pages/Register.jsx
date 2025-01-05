@@ -27,7 +27,7 @@ function Register() {
 
         try {
             await axios.post(
-                'http://localhost:8080/TicketBookingApp/api/auth/register',
+                'https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/auth/register',
                 { username: formData.username, password: formData.password },
                 { headers: { 'Content-Type': 'application/json' } }
             );

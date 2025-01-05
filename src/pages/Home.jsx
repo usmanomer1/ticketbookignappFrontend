@@ -18,7 +18,7 @@ function Home() {
     // Fetch all bookings from the backend
     useEffect(() => {
         const token = localStorage.getItem('token');
-        axios.get('http://localhost:8080/TicketBookingApp/api/bookings', {
+        axios.get('https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/bookings', {
             headers: { Authorization: `Bearer ${token}` },
         })
             .then(response => {
@@ -33,7 +33,7 @@ function Home() {
     const deleteBooking = (id) => {
         if (window.confirm("Are you sure you want to delete this booking?")) {
             const token = localStorage.getItem('token');
-            axios.delete(`http://localhost:8080/TicketBookingApp/api/bookings/${id}`, {
+            axios.delete(`https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/bookings/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             })
                 .then(() => {

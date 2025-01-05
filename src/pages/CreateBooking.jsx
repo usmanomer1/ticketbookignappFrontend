@@ -21,7 +21,7 @@ function CreateBooking() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:8080/TicketBookingApp/api/bookings', formData)
+        axios.post('https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/bookings', formData)
             .then(() => {
                 navigate('/'); // Redirect to Home Page
             })

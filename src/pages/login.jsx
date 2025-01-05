@@ -12,7 +12,7 @@ function Login() {
 
         try {
             const response = await axios.post(
-                'http://localhost:8080/TicketBookingApp/api/auth/login',
+                'https://ticketbookingapp-production.up.railway.app/TicketBookingApp/api/auth/login',
                 { username, password },
                 { headers: { 'Content-Type': 'application/json' } }
             );
