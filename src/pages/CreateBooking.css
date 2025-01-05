@@ -1,72 +1,176 @@
-/* Apply background and font styles */
-body {
-    background-color: #222;
-    color: #f1f1f1;
-    font-family: 'Arial', sans-serif;
+/* Variables for consistent colors */
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --accent-color: #4f71e5;
+    --hover-color: #3858d6;
+    --text-primary: #ffffff;
+    --text-secondary: #c9c9c9;
+    --success-color: #2ecc71;
+    --success-hover: #27ae60;
+    --border-color: #3a4a5e;
 }
 
-/* Center the entire page content */
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Main container styling */
 .App {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     min-height: 100vh;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 16px;
+    background-color: var(--secondary-bg);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Style the table */
+/* Table container for better control */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 2rem 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced table styling */
 table {
-    width: 80%;
-    max-width: 800px;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background-color: #333;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--secondary-bg);
+    margin: 0 auto;
 }
 
 th, td {
-    padding: 12px;
+    padding: 1rem 1.5rem;
     text-align: left;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid var(--border-color);
 }
 
 th {
-    background-color: #444;
+    background-color: var(--secondary-bg);
+    color: var(--accent-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
 }
 
 td {
-    color: #f1f1f1;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
 }
 
-/* Add Booking button styling */
+/* Center table text */
+th, td {
+    text-align: center;
+}
+
+/* Row hover effect */
+tr:hover {
+    background-color: rgba(79, 113, 229, 0.2);
+}
+
+/* Primary action button */
 .add-booking-button {
-    margin: 20px;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
+    margin: 1.5rem 0;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--success-color);
+    color: var(--text-primary);
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(46, 204, 113, 0.2);
 }
 
 .add-booking-button:hover {
-    background-color: #218838;
+    background-color: var(--success-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
 }
 
-/* Style buttons inside the table */
-button {
-    padding: 8px 12px;
-    margin-right: 5px;
+/* Table action buttons */
+.action-button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
     border: none;
-    border-radius: 4px;
-    color: white;
-    background-color: #007bff;
+    border-radius: 6px;
+    color: var(--text-primary);
+    background-color: var(--accent-color);
     cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.action-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-1px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .table-container {
+        margin: 1rem 0;
+    }
+
+    th, td {
+        padding: 0.75rem 1rem;
+    }
+
+    .action-button {
+        padding: 0.4rem 0.8rem;
+        margin: 0.2rem;
+    }
+}
+
+/* Loading state */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+/* Center content inside table-container */
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Adjust button alignment */
+.add-booking-button {
+    display: inline-block;
+    margin-top: 2rem;
 }
